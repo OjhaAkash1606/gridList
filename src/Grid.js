@@ -64,7 +64,7 @@ function Grid() {
           : // it is called when grid view require
             (() => {
               let td = [];
-              for (let i = 0; i < storeData.length; i += 3) {
+              for (let i = 0; i < storeData.length - 1; i += 3) {
                 // here i used optional chaining when the previous is undefined then it doesn't give error
 
                 td.push(
