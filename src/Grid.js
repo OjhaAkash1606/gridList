@@ -64,41 +64,63 @@ function Grid() {
           : // it is called when grid view require
             (() => {
               let td = [];
-              for (let i = 0; i < storeData.length - 1; i += 3) {
+              for (let i = 0; i < storeData.length; i += 3) {
                 // here i used optional chaining when the previous is undefined then it doesn't give error
-
-                td.push(
-                  <Row className=" m-3" key={storeData[i]?.id}>
-                    <Col>
-                      <div className="card" id="grid">
-                        <div className="card-body">
-                          <h5 className="card-title">{storeData[i]?.title}</h5>
-                          <p className="card-text">{storeData[i]?.body}</p>
+                if (i < storeData.length - 1) {
+                  td.push(
+                    <Row className=" m-3" key={storeData[i]?.id}>
+                      <Col>
+                        <div className="card" id="grid">
+                          <div className="card-body">
+                            <h5 className="card-title">
+                              {storeData[i]?.title}
+                            </h5>
+                            <p className="card-text">{storeData[i]?.body}</p>
+                          </div>
                         </div>
-                      </div>
-                    </Col>
-                    <Col>
-                      <div className="card" id="grid">
-                        <div className="card-body">
-                          <h5 className="card-title">
-                            {storeData[i + 1]?.title}
-                          </h5>
-                          <p className="card-text">{storeData[i + 1]?.body}</p>
+                      </Col>
+                      <Col>
+                        <div className="card" id="grid">
+                          <div className="card-body">
+                            <h5 className="card-title">
+                              {storeData[i + 1]?.title}
+                            </h5>
+                            <p className="card-text">
+                              {storeData[i + 1]?.body}
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    </Col>
-                    <Col>
-                      <div className="card" id="grid">
-                        <div className="card-body">
-                          <h5 className="card-title">
-                            {storeData[i + 2]?.title}
-                          </h5>
-                          <p className="card-text">{storeData[i + 2]?.body}</p>
+                      </Col>
+                      <Col>
+                        <div className="card" id="grid">
+                          <div className="card-body">
+                            <h5 className="card-title">
+                              {storeData[i + 2]?.title}
+                            </h5>
+                            <p className="card-text">
+                              {storeData[i + 2]?.body}
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    </Col>
-                  </Row>
-                );
+                      </Col>
+                    </Row>
+                  );
+                } else {
+                  td.push(
+                    <Row className=" m-3" key={storeData[i]?.id}>
+                      <Col>
+                        <div className="card" id="grid">
+                          <div className="card-body">
+                            <h5 className="card-title">
+                              {storeData[i]?.title}
+                            </h5>
+                            <p className="card-text">{storeData[i]?.body}</p>
+                          </div>
+                        </div>
+                      </Col>
+                    </Row>
+                  );
+                }
               }
               return td;
             })()}
