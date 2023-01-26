@@ -65,9 +65,8 @@ function Grid() {
             (() => {
               let td = [];
               for (let i = 0; i < storeData.length; i += 3) {
-                // it is used for "jump out of loop" when not need
                 // here i used optional chaining when the previous is undefined then it doesn't give error
-                if (storeData.length / 3 < i) break;
+
                 td.push(
                   <Row className=" m-3" key={storeData[i]?.id}>
                     <Col>
